@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from goodnightotron.views import BookViewSet, NoteViewSet
+from goodnightotron.views import BookViewSet, NoteViewSet, RandomView
 
 router = routers.DefaultRouter()
 router.register(r'books', BookViewSet)
@@ -29,4 +29,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('', include(router2.urls)),
     path('admin/', admin.site.urls),
+    path('random/', RandomView.as_view())
 ]
