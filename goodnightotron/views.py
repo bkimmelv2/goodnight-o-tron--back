@@ -23,5 +23,5 @@ class RandomView(View):
     def get(self, request):
         books = list(Book.objects.all())
         random_books = random.sample(books, 2)
-        finalData = json.loads(serialize('json', random_books))
+        finalData = json.loads(serialize('json', random_books, fields=["title", "image"]))
         return JsonResponse(finalData, safe=False)
